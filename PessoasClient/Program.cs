@@ -1,4 +1,6 @@
-﻿using System;
+﻿using PessoasAPI;
+using PessoasAPI.Controllers;
+using System;
 using System.IO;
 using System.Net;
 using System.Text;
@@ -17,12 +19,34 @@ namespace PessoasClient
                 var cpfValue = Console.ReadLine();
 
 
+            //roda API
+
+            //PessoasAPI.Program.Main(new string[0]);
+
+            PessoaController pc = new PessoaController();
+
+            Pessoa details = pc.GetPessoa(cpfValue);
+
             //chamada para a API
 
-            string url = string.Format("{0}/pessoa/pessoa?cpfValue={1}", "https://localhost:44346", cpfValue);
-            string details = CallRestMethod(url);
+            //string url = string.Format("{0}/pessoa/pessoa?cpfValue={1}", "https://localhost:44346", cpfValue);
+            //string details = CallRestMethod(url);
 
-            Console.WriteLine("Os dados da Pessoa são: " + details);
+            Console.WriteLine("Os dados da Pessoa são: ");
+            Console.WriteLine("Nome: " + details.Nome);
+            Console.WriteLine("Nome: " + details.Data_nascimento);
+            Console.WriteLine("CPF: " + details.Cpf);
+            Console.WriteLine("CEP: " + details.Endereco.Cep);
+            Console.WriteLine("Pais: " + details.Endereco.Pais.Nome);
+            Console.WriteLine("Estado: " + details.Endereco.Estado.Nome);
+            Console.WriteLine("Cidade: " + details.Endereco.Cidade.Nome);
+            Console.WriteLine("Logradouro: " + details.Endereco.Logradouro);
+            Console.WriteLine("Número: " + details.Endereco.Numero);
+            Console.WriteLine("Complemento: " + details.Endereco.Complemento);
+
+
+
+
 
 
             //printa a resposta
