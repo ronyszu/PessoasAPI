@@ -28,26 +28,6 @@ namespace PessoasAPI
             public DbSet<Cidade> Cidade { get; set; }
 
 
-            protected override void OnModelCreating(DbModelBuilder modelBuilder)
-            {
-                modelBuilder.Entity<Pessoa>()
-                    .Property(u => u.Cpf)
-                    .HasColumnName("cpf");
-
-                modelBuilder.Entity<Pessoa>()
-                    .Property(u => u.Nome)
-                    .HasColumnName("nome");
-
-                modelBuilder.Entity<Pessoa>()
-                    .Property(u => u.Data_nascimento)
-                    .HasColumnName("data_nascimento");
-
-                modelBuilder.Entity<Pessoa>()
-                   .HasKey(x => x.Id);
-
-            }
-
-
         }
 
 
