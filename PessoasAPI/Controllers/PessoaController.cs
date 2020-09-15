@@ -16,15 +16,7 @@ namespace PessoasAPI.Controllers
     {
        
 
-
-// private readonly ILogger<Pessoa> _logger;
-
-//public PessoaController(ILogger<PessoaController> logger)
-//{
-//    _logger = logger;
-//}
-
-        [HttpGet("pessoa")]
+        [HttpGet("getPessoa")]
         public Pessoa GetPessoa(string cpfValue)
         {
             Pessoa pessoa = new Pessoa();
