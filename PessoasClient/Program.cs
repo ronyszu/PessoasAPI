@@ -19,7 +19,7 @@ namespace PessoasClient
 
             //chamada para a API
 
-            string url = string.Format("{0}/pessoa/pessoa?cpfValue={1}", "https://localhost:44346", cpfValue);
+            string url = string.Format("{0}/pessoa/getPessoa?cpfValue={1}", "https://localhost:44346", cpfValue);
             string details = CallRestMethod(url);
 
 
