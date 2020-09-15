@@ -1,5 +1,4 @@
-﻿using PessoasAPI;
-using PessoasAPI.Controllers;
+﻿using Newtonsoft.Json;
 using System;
 using System.IO;
 using System.Net;
@@ -13,39 +12,31 @@ namespace PessoasClient
         {
 
 
- 
                 // Pedir o CPF da pessoa
                 Console.Write("Insira o CPF da pessoa desejada: ");
                 var cpfValue = Console.ReadLine();
 
 
-            //roda API
-
-            //PessoasAPI.Program.Main(new string[0]);
-
-            PessoaController pc = new PessoaController();
-
-            Pessoa details = pc.GetPessoa(cpfValue);
-
             //chamada para a API
 
-            //string url = string.Format("{0}/pessoa/pessoa?cpfValue={1}", "https://localhost:44346", cpfValue);
-            //string details = CallRestMethod(url);
+            string url = string.Format("{0}/pessoa/pessoa?cpfValue={1}", "https://localhost:44346", cpfValue);
+            string details = CallRestMethod(url);
+
+
+            var dadosPessoa = JsonConvert.DeserializeObject<PessoaDAO>(details);
+
 
             Console.WriteLine("Os dados da Pessoa são: ");
-            Console.WriteLine("Nome: " + details.Nome);
-            Console.WriteLine("Nome: " + details.Data_nascimento);
-            Console.WriteLine("CPF: " + details.Cpf);
-            Console.WriteLine("CEP: " + details.Endereco.Cep);
-            Console.WriteLine("Pais: " + details.Endereco.Pais.Nome);
-            Console.WriteLine("Estado: " + details.Endereco.Estado.Nome);
-            Console.WriteLine("Cidade: " + details.Endereco.Cidade.Nome);
-            Console.WriteLine("Logradouro: " + details.Endereco.Logradouro);
-            Console.WriteLine("Número: " + details.Endereco.Numero);
-            Console.WriteLine("Complemento: " + details.Endereco.Complemento);
-
-
-
+            Console.WriteLine("Nome: " + dadosPessoa.Nome);
+            Console.WriteLine("Data: " + dadosPessoa.Data_nascimento);
+            Console.WriteLine("CPF: " + dadosPessoa.Cpf);
+            Console.WriteLine("CEP: " + dadosPessoa.Endereco.Cep);
+            Console.WriteLine("Pais: " + dadosPessoa.Endereco.Pais.Nome);
+            Console.WriteLine("Estado: " + dadosPessoa.Endereco.Estado.Nome);
+            Console.WriteLine("Cidade: " + dadosPessoa.Endereco.Cidade.Nome);
+            Console.WriteLine("Logradouro: " + dadosPessoa.Endereco.Logradouro);
+            Console.WriteLine("Número: " + dadosPessoa.Endereco.Numero);
+            Console.WriteLine("Complemento: " + dadosPessoa.Endereco.Complemento);
 
 
 
@@ -69,7 +60,7 @@ namespace PessoasClient
         {
             HttpWebRequest webrequest = (HttpWebRequest)WebRequest.Create(url);
             webrequest.Method = "GET";
-            webrequest.ContentType = "application/x-www-form-urlencoded";
+            webrequest.ContentType = "application/json";
             webrequest.Headers.Add("Username", "xyz");
             webrequest.Headers.Add("Password", "abc");
             HttpWebResponse webresponse = (HttpWebResponse)webrequest.GetResponse();

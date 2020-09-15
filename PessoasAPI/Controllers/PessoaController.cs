@@ -42,8 +42,6 @@ namespace PessoasAPI.Controllers
                 WHERE(cpf = " + cpfValue + ")";
 
 
-                //string queryString = "SELECT *  FROM  pessoa WHERE cpf=" + cpfValue;
-
                 string connectionString = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=PessoasDB;Integrated Security=True;";
 
                 using (SqlConnection connection = new SqlConnection(connectionString))
