@@ -20,6 +20,8 @@ namespace PessoasClient
             //chamada para a API
 
             string url = string.Format("{0}/pessoa/getPessoa?cpfValue={1}", "https://localhost:44346", cpfValue);
+
+            try{ 
             string details = CallRestMethod(url);
 
 
@@ -39,16 +41,20 @@ namespace PessoasClient
             Console.WriteLine("Complemento: " + dadosPessoa.Endereco.Complemento);
 
 
+            }
+            catch(Exception e){
 
-            //printa a resposta
-            Console.WriteLine("Pressione qualquer tecla para sair.");
-                Console.ReadKey();
+                Console.WriteLine("CPF Invalido ou pessoa inexistente, tente novamente.");
+
+            }
+            finally{ 
+
 
                 //mensagem de encerramento
                 Console.WriteLine("Pressione qualquer tecla para sair.");
                 Console.ReadKey();
-            
 
+            }
 
 
 

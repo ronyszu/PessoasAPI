@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30204.135
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PessoasAPI", "PessoasAPI\PessoasAPI.csproj", "{571C3083-11FA-4ABB-A00B-30B801091950}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PessoasAPI", "PessoasAPI\PessoasAPI.csproj", "{571C3083-11FA-4ABB-A00B-30B801091950}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PessoasClient", "PessoasClient\PessoasClient.csproj", "{3927ED07-AA45-4153-8686-DEE3F3DA748A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PessoasClient", "PessoasClient\PessoasClient.csproj", "{3927ED07-AA45-4153-8686-DEE3F3DA748A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
