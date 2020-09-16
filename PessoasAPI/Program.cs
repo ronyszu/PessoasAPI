@@ -2,7 +2,6 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
 using PessoasAPI.Classes;
 using System;
-using System.Data.Entity;
 
 namespace PessoasAPI
 {
